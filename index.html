@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Tic Tac Toe</title>
+    <link
+      rel="stylesheet"
+      href="./src/assets/css/main.css"
+    />
+  </head>
+
+  <body>
+    <div id="falling"></div>
+
+    <button
+      class="adsButton"
+      id="adsBtn"
+    >
+      ADS
+    </button>
+
+    <div class="app">
+      <section
+        class="screen"
+        id="menuScreen"
+      >
+        <div class="menuCard">
+          <h1 class="title">Tic Tac Toe</h1>
+
+          <div class="subtitle">CLASSIC X AND O</div>
+
+          <div class="realTimeBox">
+            <div class="realTimeLabel">REAL TIME</div>
+
+            <div
+              class="realTimeValue"
+              id="realTime"
+            >
+              00:00:00
+            </div>
+          </div>
+
+          <div class="sectionTitle">GAME MODE</div>
+
+          <div class="modeButtons">
+            <button
+              class="threeD active"
+              id="twoPlayerBtn"
+            >
+              2 PLAYERS
+            </button>
+
+            <button
+              class="threeD"
+              id="robotBtn"
+            >
+              ROBOT
+            </button>
+          </div>
+
+          <div class="sectionTitle">SCORE TO WIN</div>
+
+          <div class="scoreOptions">
+            <button
+              class="threeD scoreBtn"
+              data-score="3"
+            >
+              3
+            </button>
+
+            <button
+              class="threeD scoreBtn active"
+              data-score="6"
+            >
+              6
+            </button>
+
+            <button
+              class="threeD scoreBtn"
+              data-score="8"
+            >
+              8
+            </button>
+          </div>
+
+          <div class="scoreInfo">
+            First player to reach the selected score wins the match.
+          </div>
+
+          <div class="sectionTitle">PLAYERS</div>
+
+          <div class="players">
+            <div class="playerCard">
+              <div
+                class="playerTitle x"
+                id="playerXTitle"
+              >
+                PLAYER X
+              </div>
+
+              <div class="profileArea">
+                <div
+                  class="avatar"
+                  id="avatarX"
+                >
+                  <span class="avatarText">X</span>
+                </div>
+
+                <div
+                  class="uploadBtn"
+                  id="photoButtonX"
+                >
+                  PROFILE PHOTO
+                </div>
+              </div>
+
+              <input
+                class="nameInput"
+                id="playerXName"
+                placeholder="Enter your name"
+                maxlength="18"
+              />
+            </div>
+
+            <div class="playerCard">
+              <div
+                class="playerTitle o"
+                id="playerOTitle"
+              >
+                PLAYER O
+              </div>
+
+              <div class="profileArea">
+                <div
+                  class="avatar"
+                  id="avatarO"
+                >
+                  <span class="avatarText">O</span>
+                </div>
+
+                <div
+                  class="uploadBtn"
+                  id="photoButtonO"
+                >
+                  PROFILE PHOTO
+                </div>
+              </div>
+
+              <input
+                class="nameInput"
+                id="playerOName"
+                placeholder="Enter your name"
+                maxlength="18"
+              />
+            </div>
+          </div>
+
+          <div class="sectionTitle">PLAYER COLORS</div>
+
+          <div class="colorOptions">
+            <div class="colorBox">
+              <span>X COLOR</span>
+
+              <input
+                type="color"
+                id="xColorPicker"
+                value="#ff3030"
+              />
+            </div>
+
+            <div class="colorBox">
+              <span>O COLOR</span>
+
+              <input
+                type="color"
+                id="oColorPicker"
+                value="#268cff"
+              />
+            </div>
+          </div>
+
+          <div class="swapBox">
+            <button
+              class="threeD swapBtn"
+              id="swapBtn"
+            >
+              SWAP X / O
+            </button>
+          </div>
+
+          <div class="menuControls">
+            <button
+              class="threeD"
+              id="themeBtn"
+            >
+              LIGHT MODE
+            </button>
+          </div>
+
+          <button
+            class="threeD playBtn"
+            id="playBtn"
+          >
+            PLAY
+          </button>
+
+          <div class="help">
+            <div class="helpTitle">HOW TO PLAY</div>
+
+            <div class="helpText">
+              Take turns placing X and O on the board. Complete three matching
+              symbols in a row to win a round. The first player to reach the
+              selected score wins the match. If the board fills without a
+              winner, the round is a draw. The round timer is 60 seconds.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="screen"
+        id="gameScreen"
+      >
+        <div class="gameCard">
+          <div class="gameTop">
+            <div></div>
+
+            <button
+              class="threeD smallBtn"
+              id="menuBtn"
+            >
+              MENU
+            </button>
+
+            <div></div>
+          </div>
+
+          <div class="turnBox">
+            <div
+              class="turnAvatar"
+              id="turnAvatar"
+            >
+              X
+            </div>
+
+            <div class="turnText">
+              <div
+                class="turnName"
+                id="turnName"
+              >
+                Player X
+              </div>
+
+              <div
+                class="turnSymbol"
+                id="turnSymbol"
+              >
+                X TURN
+              </div>
+            </div>
+          </div>
+
+          <div class="scoreBoard">
+            <div class="scorePanel">
+              <div class="scoreLabel">X SCORE</div>
+
+              <div
+                class="scoreValue xScore"
+                id="xScore"
+              >
+                0
+              </div>
+            </div>
+
+            <div class="scorePanel">
+              <div class="scoreLabel">TIME</div>
+
+              <div
+                class="scoreValue timeValue"
+                id="timeValue"
+              >
+                60
+              </div>
+            </div>
+
+            <div class="scorePanel">
+              <div class="scoreLabel">O SCORE</div>
+
+              <div
+                class="scoreValue oScore"
+                id="oScore"
+              >
+                0
+              </div>
+            </div>
+          </div>
+
+          <div class="boardWrap">
+            <div
+              class="board"
+              id="board"
+            >
+              <div
+                class="cell"
+                data-index="0"
+              ></div>
+              <div
+                class="cell"
+                data-index="1"
+              ></div>
+              <div
+                class="cell"
+                data-index="2"
+              ></div>
+
+              <div
+                class="cell"
+                data-index="3"
+              ></div>
+              <div
+                class="cell"
+                data-index="4"
+              ></div>
+              <div
+                class="cell"
+                data-index="5"
+              ></div>
+
+              <div
+                class="cell"
+                data-index="6"
+              ></div>
+              <div
+                class="cell"
+                data-index="7"
+              ></div>
+              <div
+                class="cell"
+                data-index="8"
+              ></div>
+
+              <div
+                class="winLine"
+                id="winLine"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div
+      class="overlay"
+      id="countdownOverlay"
+    >
+      <div
+        class="countdownNumber"
+        id="countdownNumber"
+      >
+        3
+      </div>
+    </div>
+
+    <div
+      class="overlay"
+      id="resultOverlay"
+    >
+      <div class="resultBox">
+        <div
+          class="resultTitle"
+          id="resultTitle"
+        >
+          X WINS
+        </div>
+
+        <div
+          class="resultSub"
+          id="resultSub"
+        ></div>
+
+        <div class="resultButtons">
+          <button
+            class="threeD"
+            id="nextRoundBtn"
+          >
+            NEXT ROUND
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="overlay"
+      id="profileOverlay"
+    >
+      <div class="resultBox">
+        <div class="resultTitle">Coming Soon</div>
+
+        <div class="resultSub">Profile photos will be available soon.</div>
+
+        <div class="resultButtons">
+          <button
+            class="threeD"
+            id="profileCloseBtn"
+          >
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="overlay"
+      id="adsOverlay"
+    >
+      <div class="resultBox">
+        <div class="resultTitle">No Ads = 10000$</div>
+
+        <div class="resultSub">Remove advertisements from the game.</div>
+
+        <div class="resultButtons">
+          <button
+            class="threeD payBtn"
+            id="payBtn"
+          >
+            PAY
+          </button>
+        </div>
+
+        <div class="resultButtons">
+          <button
+            class="threeD"
+            id="adsCloseBtn"
+          >
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/index.js"></script>
+  </body>
+</html>
