@@ -18,9 +18,9 @@
   "type": "module",
   "private": true,
   "bugs": {
-    "url": "https://github.com/AR99912/tic-tac-toe.git/issues"
+    "url": "https://github.com/AR99912/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/AR99912/tic-tac-toe.git#readme",
+  "homepage": "https://github.com/AR99912/tic-tac-toe#readme",
   "devDependencies": {
     "vite": "^8.3.2"
   }
